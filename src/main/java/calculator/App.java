@@ -41,8 +41,6 @@ public class App {
 
             System.out.println("결과: " + result);
             intArray[index] = result;
-            System.out.println(intArray[index]);
-            System.out.println("index: " + index);
             index++;
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
