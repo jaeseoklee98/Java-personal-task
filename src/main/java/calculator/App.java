@@ -1,11 +1,14 @@
 package calculator;
 
-import java.util.Objects;
+
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
+        int[] intArray = new int[10];
+        int index = 0;
+
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -37,6 +40,10 @@ public class App {
 
 
             System.out.println("결과: " + result);
+            intArray[index] = result;
+            System.out.println(intArray[index]);
+            System.out.println("index: " + index);
+            index++;
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String exit = sc.next();
@@ -45,6 +52,7 @@ public class App {
             if (exit.equals("exit")) {
                 break;
             }
+
         }
 
 
