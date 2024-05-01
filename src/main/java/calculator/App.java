@@ -1,6 +1,7 @@
 package calculator;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
@@ -38,10 +39,21 @@ public class App {
                 System.out.println("올바르지 않은 사칙연산 기호입니다.");
             }
 
+            if (index > intArray.length - 1) {
+                System.out.println("결과: " + result);
+                for(index = 0; index < intArray.length - 1; index++) {
+                    intArray[index] = intArray[index + 1];
+                }
+                intArray[index] = result;
+                // System.out.println("intArray" + "[" + index + "]" + " = " + intArray[index]);  // 마지막 index 값 출력
+            }else{
+                System.out.println("결과: " + result);
+                intArray[index] = result;
+                // System.out.println("intArray" + "[" + index + "]" + " = " + intArray[index]);  // 마지막 index 값 출력
+                index++;
+            }
 
-            System.out.println("결과: " + result);
-            intArray[index] = result;
-            index++;
+            System.out.println(Arrays.toString(intArray)); //배열 전체 출력 확인
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String exit = sc.next();
