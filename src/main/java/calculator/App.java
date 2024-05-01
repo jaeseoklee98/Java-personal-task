@@ -1,14 +1,13 @@
 package calculator;
 
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
-        int[] intArray = new int[10];
-        int index = 0;
+        ArrayList<Integer> list = new ArrayList<>();
 
         Scanner sc = new Scanner(System.in);
 
@@ -39,21 +38,17 @@ public class App {
                 System.out.println("올바르지 않은 사칙연산 기호입니다.");
             }
 
-            if (index > intArray.length - 1) {
-                System.out.println("결과: " + result);
-                for(index = 0; index < intArray.length - 1; index++) {
-                    intArray[index] = intArray[index + 1];
-                }
-                intArray[index] = result;
-                // System.out.println("intArray" + "[" + index + "]" + " = " + intArray[index]);  // 마지막 index 값 출력
-            }else{
-                System.out.println("결과: " + result);
-                intArray[index] = result;
-                // System.out.println("intArray" + "[" + index + "]" + " = " + intArray[index]);  // 마지막 index 값 출력
-                index++;
-            }
+            list.add(result);
+            System.out.println("결과: " + result);
+            //System.out.println(list.toString());  // 리스트 출력
 
-            System.out.println(Arrays.toString(intArray)); //배열 전체 출력 확인
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            String remove = sc.next();
+
+            if (remove.equals("remove")) {
+                list.remove(0);
+            }
+            //System.out.println(list.toString());  // 리스트 출력
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String exit = sc.next();
