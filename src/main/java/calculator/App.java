@@ -40,7 +40,6 @@ public class App {
 
             list.add(result);
             System.out.println("결과: " + result);
-            System.out.println(list.toString());  // 리스트 출력
 
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             String remove = sc.next();
@@ -48,7 +47,15 @@ public class App {
             if (remove.equals("remove")) {
                 list.remove(0);
             }
-            //System.out.println(list.toString());  // 리스트 출력
+
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            String inquiry = sc.next();
+
+            if (inquiry.equals("inquiry")) {
+                for(int results: list) {
+                    System.out.println(results);
+                }
+            }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String exit = sc.next();
